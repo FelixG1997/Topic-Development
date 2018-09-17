@@ -14,8 +14,14 @@ public class LevelAdding : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0))
         {
             GameObject cylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-            cylinder.transform.position = new Vector3(0,0,0);
-            cylinder.transform.
+          
+            Vector3 dimensions = transform.localScale;
+
+            dimensions.x += 2;
+            dimensions.z += 2;
+            
+            cylinder.transform.localScale = dimensions;
+
         }
 	}
 }
