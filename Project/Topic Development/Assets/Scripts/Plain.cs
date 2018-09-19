@@ -2,24 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour {
+public class Plain : MonoBehaviour
+{
 
-    private int lvlnr;
+    private int lvlnr = 0;
 
-    public void setLvlNr(int cntLvl)
-    {
-        lvlnr = cntLvl;
-    } 
-
-	public void CreateLevel()
-    {
-        DrawPlain();
-    }
-
-    public void DeleteLevel()
-    {
-
-    }
+    private GameObject[] cylinders = new GameObject[25];
 
     public void DrawPlain()
     {
@@ -38,7 +26,22 @@ public class Level : MonoBehaviour {
             // set cylinder position
             cylinder.transform.position = new Vector3(0, 0 - lvlnr, 0);
 
+            cylinders[lvlnr] = cylinder;
+
+            // inc lvl
+            lvlnr++;
+
+
         }
     }
 
+    public void DeletePlain()
+    {
+        if (lvlnr < 25)
+        {
+            lvlnr--;
+            Destroy(cylinders[lvlnr]);
+        }
+
+    }
 }
