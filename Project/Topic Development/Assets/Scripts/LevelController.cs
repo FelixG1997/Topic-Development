@@ -7,6 +7,9 @@ public class LevelController : MonoBehaviour {
     // cylinder array, maximum set to 25
     GameObject[] cylinders = new GameObject[25];
 
+    public Level level;
+
+
     public void BtnAddPressed() {
 
         // avoid ArrayOutOfBounceException
@@ -41,9 +44,20 @@ public class LevelController : MonoBehaviour {
             // Destroy cylinder with deepest level
             Destroy(cylinders[cntLvl]);
             
-        }
-
+        }           
    
     }
 
+    public void BtnTest()
+    {
+        Level[] levels = new Level[25];
+
+        for (int i=0; i<25; i++)
+        {
+            levels[i].setLvlNr(i);   
+        }
+
+        levels[0].CreateLevel();
     }
+
+}
