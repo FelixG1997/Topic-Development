@@ -5,43 +5,73 @@ using UnityEngine;
 public class Plain : MonoBehaviour
 {
 
-    private int lvlnr = 0;
+    public int lvlnr;
+    public GameObject[] cylinders = new GameObject[25];
+	//private GameObject[] buttons = new GameObject[25];
 
-    private GameObject[] cylinders = new GameObject[25];
-
-    public void DrawPlain()
+	void start(){
+			lvlnr = 0;
+	}
+	
+    public void drawPlain()
     {
         if (lvlnr < 25)
         {
             // create new cylinder
-            GameObject cylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            cylinders[lvlnr] = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+			cylinders[lvlnr].name = "Cylinder " + lvlnr;
 
             // cylinder gets new Dimensions
             Vector3 dimensions = transform.localScale;
-            dimensions.x += 3 * lvlnr + 5;
+            dimensions.x += 5 * lvlnr;
             dimensions.y /= 2;
-            dimensions.z += 3 * lvlnr + 5;
-            cylinder.transform.localScale = dimensions;
+            dimensions.z += 5 * lvlnr;
+            cylinders[lvlnr].transform.localScale = dimensions;
 
             // set cylinder position
-            cylinder.transform.position = new Vector3(0, 0 - lvlnr, 0);
-
-            cylinders[lvlnr] = cylinder;
-
+            cylinders[lvlnr].transform.position = new Vector3(0, 0 - lvlnr, 0);
+                     
             // inc lvl
             lvlnr++;
-
-
+            
+			
+			
         }
     }
 
-    public void DeletePlain()
+    public void deletePlain()
     {
-        if (lvlnr < 25)
+        if (lvlnr>=0)
         {
             lvlnr--;
             Destroy(cylinders[lvlnr]);
         }
 
     }
+	
+	private void createBtn(){
+		//cylinders[lvlnr]
+	}
+	
+	public int getLvlNr(){
+		return this.lvlnr;
+	}
+	
+	/*
+	<20:19:20> "Kongraa": Input.GetKeyDown(KeyCode.E)
+<20:19:25> "Kongraa": Mouse0
+<20:20:13> "Kongraa": void Update () {
+        if (Input.GetKeyDown(KeyCode.E) && Vector3.Distance(transportableObject.transform.position,this.transform.position) < 20) {
+            if (!hold){
+                transportableObject.transform.parent = this.transform.GetChild(0).transform;
+                hold = true;
+            }
+            else{
+                transportableObject.transform.parent = null;
+                hold = false;
+            }
+            
+        }
+    }
+	*/
 }
