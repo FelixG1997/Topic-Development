@@ -1,0 +1,18 @@
+Basics:
+- cylinders per plain
+- each Cylinder needs a Skript with OnClickListerner
+-> create bars
+-> rename plain
+-> rotate plain (if it's more easy, rotate bars)
+-> delete bars
+
+- each bars needs a Skript with OnClickListerner
+-> create lines to other bars
+-> dye line
+-> delete line
+
+
+Additional:
+- Camera rotation
+- "Topic Development" in background
+- create jar

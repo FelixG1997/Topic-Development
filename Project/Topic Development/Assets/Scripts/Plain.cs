@@ -5,43 +5,43 @@ using UnityEngine;
 public class Plain : MonoBehaviour
 {
 
-    public int lvlnr;
+    public int lvlnr = 0;
     public GameObject[] cylinders = new GameObject[25];
-	//private GameObject[] buttons = new GameObject[25];
 
-	void start(){
-			lvlnr = 0;
-	}
-	
+
     public void drawPlain()
     {
-        if (lvlnr < 25)
+        if (lvlnr==1) {
+            cylinders[0].SetActive(true);
+            lvlnr++;
+        } else if (lvlnr < 25)
         {
             // create new cylinder
-            cylinders[lvlnr] = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-			cylinders[lvlnr].name = "Cylinder " + lvlnr;
+            //cylinders[lvlnr] = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
 
             // cylinder gets new Dimensions
             Vector3 dimensions = transform.localScale;
             dimensions.x += 5 * lvlnr;
             dimensions.y /= 2;
             dimensions.z += 5 * lvlnr;
+
+            cylinders[lvlnr] = Instantiate(GameObject.FindGameObjectWithTag("MotherCylinder"), new Vector3(0, 0 - lvlnr, 0), Quaternion.identity);
+            cylinders[lvlnr].name = "Cylinder " + lvlnr;
             cylinders[lvlnr].transform.localScale = dimensions;
 
             // set cylinder position
-            cylinders[lvlnr].transform.position = new Vector3(0, 0 - lvlnr, 0);
+            //cylinders[lvlnr].transform.position = new Vector3(0, 0 - lvlnr, 0);
                      
             // inc lvl
             lvlnr++;
-            
-			
-			
         }
     }
 
     public void deletePlain()
     {
-        if (lvlnr>=0)
+        if (lvlnr == 1) {
+            cylinders[0].SetActive(false);
+        } else if (lvlnr>0)
         {
             lvlnr--;
             Destroy(cylinders[lvlnr]);
