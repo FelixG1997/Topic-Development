@@ -397,6 +397,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5112e664ca2f8d34eb70173ca3d8a784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cylinders: []
+  plain: {fileID: 0}
 --- !u!1 &1154846780
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,8 +571,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280470154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.112547, y: 29.470829, z: -23.168554}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1154846782}
   m_RootOrder: 0
@@ -914,6 +918,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2029079520}
+        m_MethodName: deleteStartCylinder
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1865047901
@@ -1033,6 +1048,7 @@ GameObject:
   - component: {fileID: 2029079515}
   - component: {fileID: 2029079514}
   - component: {fileID: 2029079519}
+  - component: {fileID: 2029079520}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1172,6 +1188,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5112e664ca2f8d34eb70173ca3d8a784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cylinders: []
+  plain: {fileID: 0}
+--- !u!114 &2029079520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029079513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d1ccdc51455749b011c21c740c39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2105974247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,6 +1296,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 971105897}
         m_MethodName: incPlainNumber
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2029079520}
+        m_MethodName: drawStartCylinder
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
