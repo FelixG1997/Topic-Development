@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plain : MonoBehaviour{
+public class NOTNEEDED : MonoBehaviour{
 
     public int lvlnr = 0;
     public GameObject[] cylinders = new GameObject[25];
